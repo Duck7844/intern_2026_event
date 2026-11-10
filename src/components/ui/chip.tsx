@@ -21,6 +21,7 @@ const chipVariants = cva(
         peach: "border-peach bg-chip-peach-bg text-chip-peach",
         pink: "border-pink bg-pink/40 text-ink",
         lilac: "border-lilac bg-lilac/50 text-ink",
+        sky: "border-[#9fd3f5] bg-info-bg text-ink",
       },
       size: {
         sm: "h-7 text-xs",

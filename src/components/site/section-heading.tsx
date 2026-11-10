@@ -32,7 +32,13 @@ export function SectionHeading({
         className,
       )}
     >
-      <div className={cn("flex max-w-2xl flex-col gap-3", align === "center" && "items-center")}>
+      <div
+        className={cn(
+          "flex flex-col gap-3",
+          Tag === "h1" ? "max-w-3xl" : "max-w-2xl",
+          align === "center" && "items-center",
+        )}
+      >
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <Tag
           className={cn(
