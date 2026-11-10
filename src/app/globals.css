@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/* Design tokens (xem docs/sukienvui-ui-analysis-plan.xlsx, sheet       */
+/* "Design tokens"). Dùng dạng class: bg-cream, text-ink, border-line… */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ink: #3b3560;
+  --color-ink-2: #514a78;
+  --color-ink-3: #6a6390;
+  --color-ink-4: #a39bc2;
+
+  --color-cream: #fff7ec;
+  --color-line: #f1e4d3;
+  --color-line-2: #e6dccf;
+  --color-dot: #f3e6d3;
+
+  --color-yellow: #ffd58a;
+  --color-yellow-deep: #f0b85a;
+  --color-mint: #8edcc5;
+  --color-peri: #a9b8f5;
+  --color-peach: #ffad8f;
+  --color-pink: #ffb5c8;
+  --color-lilac: #c9c2f0;
+
+  --color-zalo: #4c8dff;
+  --color-zalo-deep: #2b4fa8;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-deep: #128c7e;
+  --color-link: #2b4fa8;
+
+  --color-footer-text: #cfc9ec;
+  --color-disabled: #ece8f6;
+  --color-disabled-text: #7e78a0;
+  --color-focus: #ffe6b3;
+
+  --color-err: #c53035;
+  --color-err-bg: #fdecec;
+  --color-ok: #0e6f63;
+  --color-ok-bg: #ddf8f2;
+  --color-info-bg: #eaf3ff;
+  --color-note: #7a4b00;
+  --color-note-bg: #fff1d6;
+  --color-chip-peach: #9c2a17;
+  --color-chip-peach-bg: #ffe3da;
+  --color-bar: #e8453c;
+  --color-plan-hot-bg: #fffdf6;
+
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-baloo), var(--font-nunito), sans-serif;
+
+  --radius-card: 20px;
+  --radius-control: 14px;
+
+  --shadow-hard: 0 3px 0 0 var(--color-ink);
+  --shadow-hard-sm: 0 2px 0 0 var(--color-ink);
+  --shadow-soft: 0 8px 24px rgba(59, 53, 96, 0.08);
+}
+
+/* Map biến ngữ nghĩa của shadcn về palette của site để Sheet/Dialog/Accordion/Tabs ăn theo theme. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-heading: var(--font-display);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #fff7ec;
+  --foreground: #3b3560;
+  --card: #ffffff;
+  --card-foreground: #3b3560;
+  --popover: #ffffff;
+  --popover-foreground: #3b3560;
+  --primary: #ffd58a;
+  --primary-foreground: #3b3560;
+  --secondary: #f3e6d3;
+  --secondary-foreground: #3b3560;
+  --muted: #f3e6d3;
+  --muted-foreground: #6a6390;
+  --accent: #fff1d6;
+  --accent-foreground: #3b3560;
+  --destructive: #c53035;
+  --border: #f1e4d3;
+  --input: #e6dccf;
+  --ring: #ffe6b3;
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans;
+  }
+  body {
+    @apply bg-cream text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-extrabold tracking-[-0.01em] text-ink;
+  }
+  a {
+    @apply underline-offset-4;
+  }
+  ::selection {
+    @apply bg-yellow text-ink;
+  }
+}
+
+@utility wrap {
+  @apply mx-auto w-full max-w-[1160px] px-4 md:px-6;
+}
+
+@utility nav-link {
+  @apply inline-flex items-center border-b-[3px] border-transparent py-1 text-[15px] font-extrabold text-ink-2 no-underline transition-colors hover:text-ink aria-[current=page]:border-yellow aria-[current=page]:text-ink;
+}
+
+@utility bg-dots {
+  background-image: radial-gradient(var(--color-dot) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+@utility eyebrow {
+  @apply text-xs font-extrabold tracking-[0.12em] text-ink-3 uppercase;
+}
