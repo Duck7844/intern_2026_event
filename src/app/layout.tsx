@@ -36,7 +36,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${baloo.variable} ${nunito.variable} h-full`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">
+      {/* suppressHydrationWarning: extension trình duyệt (vd. Custom Cursor) có thể chèn style/data-* vào body trước khi hydrate */}
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <LangProvider>
           <Header />
           <main className="flex-1">{children}</main>

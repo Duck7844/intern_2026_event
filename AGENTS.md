@@ -19,3 +19,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Button pill dùng `<Button>` cho button, `buttonVariants()` cho `<Link>`. Variant `ghost`/`outline` được shadcn Sheet/Dialog dùng, không đổi tên.
 - Lint rule `react-hooks/set-state-in-effect` đang bật: không setState trong useEffect; dùng useSyncExternalStore hoặc "adjust state during render".
 - Scripts: `npm run dev`, `npm run lint`, `npm run typecheck`, `npm run format`, `npm run build`.
+- Icon minh hoạ: `public/icons/*.png` là Fluent Emoji 3D (MIT), xem `public/icons/LICENSE.md`. Tông màu card map trong `src/lib/tones.ts` (viết class đầy đủ, không nối chuỗi).
+- Data nội dung: `src/data/games.ts` (14 game + categories), `src/data/board-games.ts` (7 cờ). Trang detail/play đọc từ đây, không hardcode trong page.
