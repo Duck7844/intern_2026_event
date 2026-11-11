@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { LoginForm } from "@/components/auth/login-form";
+import { iconSrc } from "@/lib/assets";
 
 export const metadata: Metadata = {
   title: "Đăng nhập",
@@ -36,7 +37,7 @@ export default function LoginPage() {
             {benefits.map((b) => (
               <li key={b.icon} className="flex items-start gap-4">
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border-2 border-line bg-white">
-                  <Image src={`/icons/${b.icon}.png`} alt="" width={28} height={28} className="size-7" />
+                  <Image src={iconSrc(b.icon)} alt="" width={28} height={28} className="size-7" />
                 </span>
                 <p className="pt-2 text-base leading-relaxed font-bold text-ink-2">{b.text}</p>
               </li>

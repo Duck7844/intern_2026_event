@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { KeyRound } from "lucide-react";
+import Image from "next/image";
 
 import { Logo } from "@/components/site/logo";
 import { MobileNav } from "@/components/site/mobile-nav";
 import { buttonVariants } from "@/components/ui/button";
 import { headerNav } from "@/data/nav";
 import { useLang } from "@/lib/i18n";
+import { iconSrc } from "@/lib/assets";
 import { cn } from "@/lib/utils";
 
 /** Link đang active khi pathname trùng, hoặc là anchor về Home và đang ở Home. */
@@ -49,7 +50,7 @@ export function Header() {
             title={t("nav.loginTitle")}
             className="inline-flex h-10 items-center gap-1.5 rounded-full px-2.5 text-sm font-extrabold whitespace-nowrap text-ink-2 no-underline transition-colors hover:bg-white hover:text-ink"
           >
-            <KeyRound className="size-[1.2em] text-yellow-deep" aria-hidden="true" />
+            <Image src={iconSrc("key")} alt="" width={20} height={20} className="size-[1.2em]" />
             <span className="sr-only md:not-sr-only">{t("nav.login")}</span>
           </Link>
 

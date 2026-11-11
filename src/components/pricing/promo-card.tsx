@@ -4,6 +4,7 @@ import { Chip } from "@/components/ui/chip";
 import type { Promo } from "@/data/pricing";
 import { toneBg } from "@/lib/tones";
 import { cn } from "@/lib/utils";
+import { iconSrc } from "@/lib/assets";
 
 type PromoCardProps = { promo: Promo; className?: string };
 
@@ -19,7 +20,7 @@ export function PromoCard({ promo, className }: PromoCardProps) {
     >
       <div className={cn("flex aspect-[16/9] items-center justify-center rounded-2xl", toneBg[promo.tone])}>
         <Image
-          src={`/icons/${promo.icon}.png`}
+          src={iconSrc(promo.icon)}
           alt=""
           width={96}
           height={96}

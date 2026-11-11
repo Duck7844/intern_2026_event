@@ -7,6 +7,7 @@ import { FaqAccordion } from "@/components/site/faq-accordion";
 import { Stepper } from "@/components/site/stepper";
 import { TipBox } from "@/components/site/tip-box";
 import { hostSteps, hostTip, playerSteps, playerTip, supportFaq } from "@/data/faq";
+import { IMG } from "@/lib/assets";
 
 const tabs = [
   { value: "host", label: "Người tổ chức" },
@@ -59,8 +60,8 @@ function FaqSection() {
   return (
     <div className="mt-4 flex flex-col gap-5">
       <div className="flex items-center gap-4">
-        <span className="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl border-2 border-line bg-peri/40">
-          <Image src="/icons/chat.png" alt="" width={36} height={36} className="size-9" />
+        <span className="relative inline-flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border-2 border-line bg-peri/40">
+          <Image src={IMG.helpFaq} alt="" fill unoptimized className="object-cover" />
         </span>
         <h2 className="text-[26px] leading-tight md:text-[32px]">Câu hỏi thường gặp</h2>
       </div>

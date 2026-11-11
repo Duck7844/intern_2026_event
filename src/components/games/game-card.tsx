@@ -4,6 +4,7 @@ import { Clock, Users } from "lucide-react";
 
 import { Chip } from "@/components/ui/chip";
 import type { Game } from "@/data/games";
+import { isSvg } from "@/lib/assets";
 import { toneBg, toneButton } from "@/lib/tones";
 import { cn } from "@/lib/utils";
 
@@ -15,8 +16,10 @@ type GameCardProps = {
 /**
  * Card game ở trang chủ và block "Chơi tiếp game khác" ở trang chi tiết.
  * Toàn bộ card là một link, nút "Chơi ngay" chỉ là phần nhấn mạnh.
+ * Ảnh webp phủ kín ô (object-cover); ảnh SVG có nền trong suốt thì đặt trên nền pastel (object-contain).
  */
 export function GameCard({ game, className }: GameCardProps) {
+  const svg = isSvg(game.image);
   return (
     <Link
       href={game.href}
@@ -27,25 +30,29 @@ export function GameCard({ game, className }: GameCardProps) {
     >
       <div
         className={cn(
-          "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl",
+          "relative aspect-[4/3] overflow-hidden rounded-2xl border-2 border-line",
           toneBg[game.tone],
         )}
       >
+        <Image
+          src={game.image}
+          alt=""
+          fill
+          unoptimized={svg}
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+          className={cn(
+            "transition-transform duration-300 group-hover:scale-[1.03]",
+            svg ? "object-contain p-4" : "object-cover",
+          )}
+        />
         <Chip
           as="span"
           size="sm"
           tone="neutral"
-          className="absolute top-3 left-3 border-white/70 bg-white/85 text-ink-2 backdrop-blur-sm"
+          className="absolute top-3 left-3 border-white/70 bg-white/90 text-ink-2 backdrop-blur-sm"
         >
           {game.badge}
         </Chip>
-        <Image
-          src={`/icons/${game.icon}.png`}
-          alt=""
-          width={112}
-          height={112}
-          className="size-24 drop-shadow-[0_8px_12px_rgba(59,53,96,0.18)] transition-transform duration-300 group-hover:scale-105 md:size-28"
-        />
       </div>
 
       <div className="flex flex-1 flex-col gap-2 px-1 pt-4 pb-1">

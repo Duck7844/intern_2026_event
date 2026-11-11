@@ -6,6 +6,7 @@ import Image from "next/image";
 import { GameCard } from "@/components/games/game-card";
 import { Chip } from "@/components/ui/chip";
 import { type CategoryId, categories, games } from "@/data/games";
+import { iconSrc } from "@/lib/assets";
 
 /**
  * Section #game: tiêu đề có icon xúc xắc, chip lọc theo dịp, lưới card game.
@@ -23,7 +24,7 @@ export function GameGrid() {
     <section id="game" className="wrap scroll-mt-20 py-14 md:py-20">
       <div className="mb-6 flex items-start gap-4 md:mb-8">
         <span className="hidden size-14 shrink-0 items-center justify-center rounded-2xl border-2 border-line bg-mint/50 sm:inline-flex">
-          <Image src="/icons/dice.png" alt="" width={40} height={40} className="size-9" />
+          <Image src={iconSrc("dice")} alt="" width={40} height={40} className="size-9" />
         </span>
         <div>
           <h2 className="text-[28px] leading-[1.1] md:text-[38px]">Hôm nay chơi gì?</h2>

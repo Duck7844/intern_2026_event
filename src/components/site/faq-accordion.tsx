@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 type FaqAccordionProps = {
   items: FaqItem[];
-  /** id câu mở sẵn, mặc định câu đầu */
+  /** id câu mở sẵn, mặc định câu đầu. Truyền id không tồn tại (vd "__none__") để đóng hết. */
   defaultOpenId?: string;
   className?: string;
 };

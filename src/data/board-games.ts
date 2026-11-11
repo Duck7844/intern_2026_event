@@ -10,6 +10,8 @@ export type BoardGame = {
   players: string;
   duration: string;
   tone: Tone;
+  /** Ảnh bàn cờ (SVG) */
+  image: string;
   icon: string;
   /** Có chế độ đấu máy */
   ai: boolean;
@@ -20,6 +22,7 @@ export type BoardGame = {
 export const boardGames: BoardGame[] = [
   {
     slug: "co-vua",
+    image: "/design/web-img/board-chess.svg",
     href: "/ban-co/co-vua",
     title: "Cờ vua",
     description: "Đấu máy 3 mức hoặc chơi 2 người chung máy. Có gợi ý nước đi.",
@@ -33,6 +36,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "co-tuong",
+    image: "/design/web-img/board-xiangqi.svg",
     href: "/ban-co/co-tuong",
     title: "Cờ tướng",
     description: "Bàn cờ tướng chuẩn, đấu máy hoặc 2 người. Đủ luật cản mã, cản tượng, lộ mặt tướng.",
@@ -46,6 +50,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "o-an-quan",
+    image: "/design/web-img/board-oanquan.svg",
     href: "/ban-co/o-an-quan",
     title: "Ô ăn quan",
     description: "Trò dân gian rải sỏi quen thuộc: chọn ô, chọn hướng, ăn liên hoàn.",
@@ -59,6 +64,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "co-ca-ro",
+    image: "/design/web-img/board-caro.svg",
     href: "/ban-co/co-ca-ro",
     title: "Cờ ca rô",
     description: "X và O, ai xếp đủ 5 ô trước thì thắng. Tuỳ chọn luật chặn hai đầu.",
@@ -72,6 +78,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "co-vay",
+    image: "/design/web-img/board-go.svg",
     href: "/ban-co/co-vay",
     title: "Cờ vây",
     description: "Bàn 9×9 cho người mới, 13×13 khi đã quen. Bao vây để chiếm đất.",
@@ -85,6 +92,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "co-lat",
+    image: "/design/web-img/board-othello.svg",
     href: "/ban-co/co-lat",
     title: "Cờ lật",
     description: "Kẹp quân đối thủ để lật thành màu của mình. Học 1 phút, chơi cả đời.",
@@ -98,6 +106,7 @@ export const boardGames: BoardGame[] = [
   },
   {
     slug: "co-ty-phu",
+    image: "/design/web-img/board-typhu.svg",
     href: "/ban-co/co-ty-phu",
     title: "Cờ tỷ phú Việt",
     description: "Tung xúc xắc, mua đất các thành phố Việt Nam, xây nhà, thu tiền thuê. 2–4 người.",

@@ -10,6 +10,7 @@ import { Chip } from "@/components/ui/chip";
 import { featuredPromoDetails, type Promo } from "@/data/pricing";
 import { toneBg } from "@/lib/tones";
 import { cn } from "@/lib/utils";
+import { iconSrc } from "@/lib/assets";
 
 type FeaturedPromoProps = { promo: Promo };
 
@@ -69,7 +70,7 @@ export function FeaturedPromo({ promo }: FeaturedPromoProps) {
           className={cn("flex min-h-56 items-center justify-center border-t-2 border-ink lg:border-t-0 lg:border-l-2", toneBg[promo.tone])}
         >
           <Image
-            src={`/icons/${promo.icon}.png`}
+            src={iconSrc(promo.icon)}
             alt=""
             width={160}
             height={160}

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
-import { toneBg } from "@/lib/tones";
 import { cn } from "@/lib/utils";
+import { iconSrc } from "@/lib/assets";
 
 const features = [
   { icon: "users", text: "Tới 300 người/phòng" },
@@ -14,12 +14,12 @@ const features = [
 ];
 
 const collage = [
-  { icon: "quiz", tone: "peach", rotate: "-rotate-3" },
-  { icon: "bingo", tone: "yellow", rotate: "rotate-2" },
-  { icon: "vote", tone: "peri", rotate: "-rotate-1" },
-  { icon: "wheel", tone: "mint", rotate: "rotate-3" },
-  { icon: "red-envelope", tone: "pink", rotate: "-rotate-2" },
-  { icon: "spot-diff", tone: "lilac", rotate: "rotate-1" },
+  { src: "/design/web-img/quiz.webp", rotate: "-rotate-3" },
+  { src: "/design/web-img/bingo.webp", rotate: "rotate-2" },
+  { src: "/design/web-img/binh-chon.webp", rotate: "-rotate-1" },
+  { src: "/design/web-img/vong-quay.webp", rotate: "rotate-3" },
+  { src: "/design/web-img/chon-phe.webp", rotate: "-rotate-2" },
+  { src: "/design/web-img/boc-tham.webp", rotate: "rotate-1" },
 ] as const;
 
 const ecosystem = [
@@ -67,7 +67,7 @@ export function Business() {
                 key={f.text}
                 className="flex items-center gap-3 rounded-2xl border-2 border-line bg-cream px-4 py-3 text-sm font-extrabold text-ink"
               >
-                <Image src={`/icons/${f.icon}.png`} alt="" width={28} height={28} className="size-7" />
+                <Image src={iconSrc(f.icon)} alt="" width={28} height={28} className="size-7" />
                 {f.text}
               </li>
             ))}
@@ -86,20 +86,13 @@ export function Business() {
         <ul className="grid grid-cols-3 gap-3 sm:gap-4" aria-hidden="true">
           {collage.map((c) => (
             <li
-              key={c.icon}
+              key={c.src}
               className={cn(
-                "flex aspect-[4/3] items-center justify-center rounded-2xl border-2 border-line",
-                toneBg[c.tone],
+                "relative aspect-square overflow-hidden rounded-[18px] border-[3px] border-white shadow-[0_0_0_2px_var(--color-line)] motion-reduce:transform-none",
                 c.rotate,
               )}
             >
-              <Image
-                src={`/icons/${c.icon}.png`}
-                alt=""
-                width={64}
-                height={64}
-                className="size-12 drop-shadow-[0_6px_10px_rgba(59,53,96,0.18)] sm:size-16"
-              />
+              <Image src={c.src} alt="" fill sizes="(min-width: 1024px) 15vw, 30vw" className="object-cover" />
             </li>
           ))}
         </ul>
@@ -118,7 +111,7 @@ export function Business() {
               className="group flex h-full items-start gap-4 rounded-card border-2 border-line bg-white p-5 no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-soft"
             >
               <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-xl border-2 border-line bg-cream">
-                <Image src={`/icons/${item.icon}.png`} alt="" width={32} height={32} className="size-8" />
+                <Image src={iconSrc(item.icon)} alt="" width={32} height={32} className="size-8" />
               </span>
               <span className="flex-1">
                 <span className="flex items-center gap-1 text-[17px] font-extrabold text-ink">

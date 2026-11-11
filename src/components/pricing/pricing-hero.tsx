@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 
-import { toneSolid } from "@/lib/tones";
-import { cn } from "@/lib/utils";
+import { IMG } from "@/lib/assets";
 
 const highlights = [
   "Thanh toán chuyển khoản, có hoá đơn VAT",
@@ -10,15 +9,8 @@ const highlights = [
   "Hỗ trợ qua Zalo trong ngày sự kiện",
 ];
 
-const collage = [
-  { icon: "wheel", tone: "peri", className: "col-span-2 row-span-2" },
-  { icon: "lottery", tone: "mint", className: "" },
-  { icon: "red-envelope", tone: "peach", className: "" },
-  { icon: "gift", tone: "pink", className: "" },
-  { icon: "trophy", tone: "yellow", className: "" },
-] as const;
 
-/** Banner tối ở đầu trang Ưu đãi: text trái, collage icon phải. */
+/** Banner tối ở đầu trang Ưu đãi: text trái, ảnh minh hoạ phải. */
 export function PricingHero() {
   return (
     <section className="relative overflow-hidden rounded-[28px] border-2 border-ink bg-ink px-6 py-10 text-white shadow-[0_6px_0_0_var(--color-ink-2)] md:px-12 md:py-14">
@@ -44,29 +36,9 @@ export function PricingHero() {
           </ul>
         </div>
 
-        <ul className="grid grid-cols-4 grid-rows-2 gap-3 self-stretch" aria-hidden="true">
-          {collage.map((c) => (
-            <li
-              key={c.icon}
-              className={cn(
-                "flex min-h-24 items-center justify-center rounded-2xl border-2 border-white/15",
-                toneSolid[c.tone],
-                c.className,
-              )}
-            >
-              <Image
-                src={`/icons/${c.icon}.png`}
-                alt=""
-                width={96}
-                height={96}
-                className={cn(
-                  "drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]",
-                  c.className ? "size-24 md:size-28" : "size-12 md:size-14",
-                )}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className="relative mx-auto aspect-[4/3] w-full max-w-md lg:max-w-none" aria-hidden="true">
+          <Image src={IMG.promoHero} alt="" fill unoptimized priority className="object-contain" />
+        </div>
       </div>
     </section>
   );

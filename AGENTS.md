@@ -21,3 +21,5 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Scripts: `npm run dev`, `npm run lint`, `npm run typecheck`, `npm run format`, `npm run build`.
 - Icon minh hoạ: `public/icons/*.png` là Fluent Emoji 3D (MIT), xem `public/icons/LICENSE.md`. Tông màu card map trong `src/lib/tones.ts` (viết class đầy đủ, không nối chuỗi).
 - Data nội dung: `src/data/games.ts` (14 game + categories), `src/data/board-games.ts` (7 cờ). Trang detail/play đọc từ đây, không hardcode trong page.
+- Ảnh gốc của site tham chiếu (web của leader, đã được phép dùng cho task clone nội bộ) nằm ở `public/design/**`, giữ nguyên đường dẫn gốc. Dùng qua `src/lib/assets.ts`: `iconSrc(name)` (ưu tiên web-icons, fallback Fluent), `IMG.*`, `isSvg()` (SVG cần `unoptimized` trên next/image).
+- Route động với Cache Components: page không `await params` trực tiếp; đẩy xuống component con bọc `<Suspense>` (xem `app/(site)/tro-choi/[slug]/page.tsx`).

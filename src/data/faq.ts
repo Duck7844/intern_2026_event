@@ -8,6 +8,8 @@ export type Step = {
   /** Icon trong public/icons cho ô minh hoạ */
   icon: string;
   tone: Tone;
+  /** Ảnh minh hoạ riêng, ưu tiên hơn icon */
+  image?: string;
 };
 
 /** FAQ trang Hỗ trợ */
@@ -60,24 +62,28 @@ export const supportFaq: FaqItem[] = [
 export const hostSteps: Step[] = [
   {
     title: "Chọn game",
+    image: "/design/web-img/help/host-1.svg",
     description: "Vào thư viện, chơi thử 60 giây để chắc game hợp với nhóm của bạn.",
     icon: "dice",
     tone: "peri",
   },
   {
     title: "Mở phòng",
+    image: "/design/web-img/help/host-2.svg",
     description: "Đăng nhập, chọn nội dung mẫu, cài thời gian rồi bấm Mở phòng.",
     icon: "sparkles",
     tone: "mint",
   },
   {
     title: "Chiếu & ghép điện thoại",
+    image: "/design/web-img/help/host-3.svg",
     description: "Mở cửa sổ trình chiếu lên TV, quét mã host để điều khiển bằng điện thoại.",
     icon: "phone-qr",
     tone: "yellow",
   },
   {
     title: "Điều khiển",
+    image: "/design/web-img/help/host-4.svg",
     description: "Bắt đầu, công bố, xếp hạng, chuyển game. Hết buổi bấm Kết thúc phòng.",
     icon: "timer",
     tone: "pink",

@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Crown, TrendingDown, TrendingUp, Users } from "lucide-react";
+import { Check, TrendingDown, TrendingUp, Users } from "lucide-react";
 
 import { RoomCodeForm } from "@/components/home/room-code-form";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { iconSrc } from "@/lib/assets";
 
 const leaderboard = [
   { rank: 1, name: "Thảo Vy", score: "4.200", avatar: "ava-fox", delta: 0 },
@@ -20,7 +21,7 @@ export function Hero() {
       {/* Cột trái: thông điệp + CTA */}
       <div className="flex flex-col items-start gap-6">
         <p className="inline-flex items-center gap-2 rounded-full border-2 border-line bg-white px-4 py-2 text-sm font-extrabold text-ink-2">
-          <Image src="/icons/party.png" alt="" width={20} height={20} className="size-5" />
+          <Image src={iconSrc("party")} alt="" width={20} height={20} className="size-5" />
           Mini game cho nhóm bạn &amp; ngày hội công ty
         </p>
 
@@ -90,14 +91,14 @@ export function Hero() {
                 >
                   <span className="flex w-6 justify-center font-extrabold text-ink-2">
                     {first ? (
-                      <Crown className="size-5 text-ink" aria-label="Hạng 1" />
+                      <Image src={iconSrc("crown")} alt="Hạng 1" width={22} height={22} className="size-[22px]" />
                     ) : (
                       row.rank
                     )}
                   </span>
                   <span className="inline-flex size-9 items-center justify-center overflow-hidden rounded-full border-2 border-line bg-cream">
                     <Image
-                      src={`/icons/${row.avatar}.png`}
+                      src={iconSrc(row.avatar)}
                       alt=""
                       width={28}
                       height={28}

@@ -31,7 +31,9 @@ export type Game = {
   players: string;
   duration: string;
   tone: Tone;
-  /** Tên file trong public/icons (không đuôi) */
+  /** Ảnh minh hoạ (web-img) */
+  image: string;
+  /** Tên icon (fallback / dùng ở collage), xem lib/assets.ts */
   icon: string;
   /** detail: có trang /tro-choi/[slug]; play: trang chơi trực tiếp */
   kind: "detail" | "play";
@@ -40,6 +42,7 @@ export type Game = {
 export const games: Game[] = [
   {
     slug: "do-vui-trac-nghiem",
+    image: "/design/web-img/quiz.webp",
     href: "/tro-choi/do-vui-trac-nghiem",
     title: "Đố vui trắc nghiệm",
     description:
@@ -54,6 +57,7 @@ export const games: Game[] = [
   },
   {
     slug: "duoi-hinh-bat-chu",
+    image: "/design/web-img/duoi-hinh.webp",
     href: "/tro-choi/duoi-hinh-bat-chu",
     title: "Đuổi hình bắt chữ",
     description:
@@ -68,6 +72,7 @@ export const games: Game[] = [
   },
   {
     slug: "doan-gia",
+    image: "/design/web-img/doan-gia.webp",
     href: "/tro-choi/doan-gia",
     title: "Đoán giá đúng",
     description:
@@ -82,6 +87,7 @@ export const games: Game[] = [
   },
   {
     slug: "binh-chon",
+    image: "/design/web-img/binh-chon.webp",
     href: "/tro-choi/binh-chon",
     title: "Bình chọn trực tiếp",
     description:
@@ -96,6 +102,7 @@ export const games: Game[] = [
   },
   {
     slug: "word-cloud",
+    image: "/design/web-img/word-cloud.webp",
     href: "/tro-choi/word-cloud",
     title: "Word Cloud",
     description:
@@ -110,6 +117,7 @@ export const games: Game[] = [
   },
   {
     slug: "ai-la-gian-diep",
+    image: "/design/web-img/gian-diep.webp",
     href: "/tro-choi/ai-la-gian-diep",
     title: "Ai là gián điệp",
     description:
@@ -124,6 +132,7 @@ export const games: Game[] = [
   },
   {
     slug: "bingo-su-kien",
+    image: "/design/web-img/bingo.webp",
     href: "/tro-choi/bingo-su-kien",
     title: "Bingo sự kiện",
     description:
@@ -138,6 +147,7 @@ export const games: Game[] = [
   },
   {
     slug: "hai-su-that-mot-loi-noi-doi",
+    image: "/design/web-img/hai-su-that.webp",
     href: "/tro-choi/hai-su-that-mot-loi-noi-doi",
     title: "Hai sự thật, một lời nói dối",
     description:
@@ -152,6 +162,7 @@ export const games: Game[] = [
   },
   {
     slug: "ve-va-doan",
+    image: "/design/web-img/ve-doan.webp",
     href: "/tro-choi/ve-va-doan",
     title: "Vẽ và đoán",
     description:
@@ -166,6 +177,7 @@ export const games: Game[] = [
   },
   {
     slug: "vong-quay",
+    image: "/design/web-img/vong-quay.webp",
     href: "/vong-quay",
     title: "Vòng quay may mắn",
     description:
@@ -180,6 +192,7 @@ export const games: Game[] = [
   },
   {
     slug: "boc-tham",
+    image: "/design/web-img/boc-tham.webp",
     href: "/boc-tham",
     title: "Bốc thăm trúng thưởng",
     description:
@@ -194,6 +207,7 @@ export const games: Game[] = [
   },
   {
     slug: "boc-tham-li-xi",
+    image: "/design/web-img/lixi.svg",
     href: "/boc-tham-li-xi",
     title: "Bốc thăm lì xì",
     description:
@@ -208,6 +222,7 @@ export const games: Game[] = [
   },
   {
     slug: "xin-xam-dau-nam",
+    image: "/design/web-img/xinxam/card.svg",
     href: "/xin-xam-dau-nam",
     title: "Xin xăm đầu năm",
     description:
@@ -222,6 +237,7 @@ export const games: Game[] = [
   },
   {
     slug: "tim-diem-khac-nhau",
+    image: "/design/web-img/tim-diem-khac.svg",
     href: "/tro-choi/tim-diem-khac-nhau",
     title: "Tìm điểm khác nhau",
     description:

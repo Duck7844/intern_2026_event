@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Step } from "@/data/faq";
 import { toneBg } from "@/lib/tones";
 import { cn } from "@/lib/utils";
+import { iconSrc, isSvg } from "@/lib/assets";
 
 type StepperProps = {
   steps: Step[];
@@ -29,17 +30,28 @@ export function Stepper({ steps, className, columns }: StepperProps) {
         >
           <div
             className={cn(
-              "flex aspect-[16/10] items-center justify-center rounded-2xl",
+              "relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl",
               toneBg[step.tone],
             )}
           >
-            <Image
-              src={`/icons/${step.icon}.png`}
-              alt=""
-              width={80}
-              height={80}
-              className="size-16 drop-shadow-[0_6px_10px_rgba(59,53,96,0.18)] md:size-20"
-            />
+            {step.image ? (
+              <Image
+                src={step.image}
+                alt=""
+                fill
+                unoptimized={isSvg(step.image)}
+                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover"
+              />
+            ) : (
+              <Image
+                src={iconSrc(step.icon)}
+                alt=""
+                width={80}
+                height={80}
+                className="size-16 drop-shadow-[0_6px_10px_rgba(59,53,96,0.18)] md:size-20"
+              />
+            )}
           </div>
           <div className="flex items-start gap-3 px-1">
             <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl border-2 border-ink bg-yellow font-display text-base font-extrabold text-ink shadow-hard-sm">

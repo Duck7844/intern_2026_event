@@ -10,7 +10,7 @@ type BoardGameCardProps = {
   className?: string;
 };
 
-/** Card nhỏ ở "Góc giải trí" trang chủ: ô màu đặc + tên + meta. */
+/** Card nhỏ ở "Góc giải trí" trang chủ: ảnh bàn cờ + tên + meta. */
 export function BoardGameCard({ game, className }: BoardGameCardProps) {
   return (
     <Link
@@ -22,16 +22,17 @@ export function BoardGameCard({ game, className }: BoardGameCardProps) {
     >
       <div
         className={cn(
-          "flex aspect-square items-center justify-center rounded-2xl border-2 border-line transition-[transform,box-shadow] duration-200 group-hover:-translate-y-0.5 group-hover:shadow-soft",
+          "relative aspect-square overflow-hidden rounded-2xl border-2 border-line transition-[transform,box-shadow] duration-200 group-hover:-translate-y-0.5 group-hover:shadow-soft",
           toneSolid[game.tone],
         )}
       >
         <Image
-          src={`/icons/${game.icon}.png`}
+          src={game.image}
           alt=""
-          width={72}
-          height={72}
-          className="size-14 drop-shadow-[0_6px_10px_rgba(59,53,96,0.2)] md:size-16"
+          fill
+          unoptimized
+          sizes="(min-width: 1024px) 14vw, (min-width: 640px) 33vw, 50vw"
+          className="object-cover"
         />
       </div>
       <div className="px-0.5">
