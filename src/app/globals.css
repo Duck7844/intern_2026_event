@@ -154,3 +154,22 @@
 @utility eyebrow {
   @apply text-xs font-extrabold tracking-[0.12em] text-ink-3 uppercase;
 }
+
+/* Trang chơi: rung lắc (ống xăm), chạy số (bốc thăm) */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-6px) rotate(-3deg);
+  }
+  75% {
+    transform: translateX(6px) rotate(3deg);
+  }
+}
+@utility animate-shake {
+  animation: shake var(--shake-duration, 0.3s) ease-in-out infinite;
+}
+
+@custom-variant fullscreen (&:fullscreen);

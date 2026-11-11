@@ -6,9 +6,9 @@
 
 const WEB_ICONS = new Set([
   "ava-cat", "ava-fox", "ava-frog", "ava-panda", "ava-tiger", "ballot", "chart", "chat", "clipboard",
-  "crown", "detective", "dice", "gamepad", "gift", "globe", "handshake", "key", "mic", "palette",
-  "party", "phone-qr", "repeat", "robot", "search", "snow", "sparkles", "ticket", "timer", "trophy",
-  "users", "wave-hand", "wheel",
+  "crown", "detective", "dice", "frame", "gamepad", "gift", "globe", "handshake", "key", "mic",
+  "numbers", "palette", "party", "phone-qr", "repeat", "robot", "search", "shield", "sliders", "snow",
+  "sparkles", "target", "ticket", "timer", "trophy", "undo", "users", "wave-hand", "wheel",
 ]);
 
 /** Tên icon Fluent -> tên icon tương đương trong bộ web-icons */
@@ -34,6 +34,8 @@ export const IMG = {
   helpHost: (n: 1 | 2 | 3 | 4) => `/design/web-img/help/host-${n}.svg`,
   tugOfWar: "/design/web-img/chon-phe.webp",
   wheelTet: "/design/web-img/wheel/tet.webp",
+  xinxamBg: "/design/web-img/xinxam/bg.webp",
+  xinxamTube: "/design/web-img/xinxam/ong.webp",
 } as const;
 
 /** SVG không qua image optimizer của Next (cần `unoptimized`). */

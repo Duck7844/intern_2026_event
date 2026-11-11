@@ -23,3 +23,4 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Data nội dung: `src/data/games.ts` (14 game + categories), `src/data/board-games.ts` (7 cờ). Trang detail/play đọc từ đây, không hardcode trong page.
 - Ảnh gốc của site tham chiếu (web của leader, đã được phép dùng cho task clone nội bộ) nằm ở `public/design/**`, giữ nguyên đường dẫn gốc. Dùng qua `src/lib/assets.ts`: `iconSrc(name)` (ưu tiên web-icons, fallback Fluent), `IMG.*`, `isSvg()` (SVG cần `unoptimized` trên next/image).
 - Route động với Cache Components: page không `await params` trực tiếp; đẩy xuống component con bọc `<Suspense>` (xem `app/(site)/tro-choi/[slug]/page.tsx`).
+- Trang chơi (phase 4): `components/play/*`. Khung chung PlayToolbar / PlayStage / HistoryBar / QuickEditDialog; state lưu localStorage qua `lib/use-local-storage.ts` (useSyncExternalStore, fallback phải là hằng ngoài component). Data demo ở `data/play.ts`.

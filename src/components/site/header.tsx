@@ -8,6 +8,7 @@ import { Logo } from "@/components/site/logo";
 import { MobileNav } from "@/components/site/mobile-nav";
 import { buttonVariants } from "@/components/ui/button";
 import { headerNav } from "@/data/nav";
+import { playRoutes } from "@/data/play";
 import { useLang } from "@/lib/i18n";
 import { iconSrc } from "@/lib/assets";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,8 @@ import { cn } from "@/lib/utils";
 /** Link đang active khi pathname trùng, hoặc là anchor về Home và đang ở Home. */
 function isActive(pathname: string, href: string) {
   if (href.startsWith("/#")) return pathname === "/" && href === "/#game";
+  // Mục "Vòng quay & Bốc thăm" active cho cả 4 trang chơi
+  if (href === "/vong-quay") return playRoutes.includes(pathname);
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
