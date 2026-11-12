@@ -5,10 +5,12 @@
  */
 
 const WEB_ICONS = new Set([
-  "ava-cat", "ava-fox", "ava-frog", "ava-panda", "ava-tiger", "ballot", "chart", "chat", "clipboard",
-  "crown", "detective", "dice", "frame", "gamepad", "gift", "globe", "handshake", "key", "mic",
-  "numbers", "palette", "party", "phone-qr", "repeat", "robot", "search", "shield", "sliders", "snow",
-  "sparkles", "target", "ticket", "timer", "trophy", "undo", "users", "wave-hand", "wheel",
+  "ava-cat", "ava-fox", "ava-frog", "ava-panda", "ava-tiger", "ballot", "bus", "card", "chart", "chat",
+  "clipboard", "crown", "cuffs", "detective", "dice", "face-fire", "face-happy", "face-sweat", "finish",
+  "frame", "gamepad", "gift", "globe", "handshake", "key", "lock", "mic", "money", "money-fly",
+  "numbers", "palette", "party", "phone-qr", "puzzle", "repeat", "robot", "rock", "search", "shield",
+  "sliders", "snow", "sparkles", "target", "ticket", "timer", "train", "trophy", "undo", "users",
+  "wave-hand", "wheel",
 ]);
 
 /** Tên icon Fluent -> tên icon tương đương trong bộ web-icons */
